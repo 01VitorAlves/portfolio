@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {                              /* Root serve para criar variaveis no Css*/
+    --cor-primaria: #000000;      /* Criei 3 vars para cada cor*/
+    --cor-secundaria: #F6F6F6;
+    --cor-tericiaria: #22D4FD;
+    --cor-hover: #272727;
+
+    --font-principal: 'Krona One', sans-serif;
+    --font-secundaria: 'Montserrat', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh; /* Esse VH é para definir que deve ser utilizado 100% da tela disponivel */
+     box-sizing: border-box; /*Esse pode ser usado content-box ou border-box, o border box limita que os elementos filhos do body não saiam de dentro do body, furando margem*/
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.cabecalho{
+    padding: 2% 0% 0% 15%;
+}
+
+.cabecalho__menu{
+    display: flex;
+    gap: 80px;
+}
+
+.cabecalho__menu__botao {
+    font-family:var(--font-secundaria);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-tericiaria);
+    text-decoration: none;
+}
+
+
+.apresentacao {
+    display: flex; /*Aqui estou falando para o MAIN que todos os itens filhos dentro deles agora são elementos dentro de uma flex box e assim são colocados lado a lado */
+    margin: 10% 15%; /* Aqui estou limitando o espaço que os filhos tem na tela, assim comprimindo o texto, fazendo eles ficarem mais pro meio */
+    align-items: center; /* Aqui falando que todos os itens do flexbox devem se alinhar no centro do maior item */
+    justify-content: space-between;  /* Aqui  que todos os itens do flexbox devem se espaçar igualmente */
+    gap: 82px;      /* falando pra ter entre os elemento um novo espaço */
+}
+
+.apresentacao__conteudo { /* Essa classe foi criada pra mexer só com o TEXTO */
+    width: 50%; /* Aqui defini que o texto só pode ocupar 50% da tela, forçando ele a se comprimir e pular linhas */
+    display: flex; /* chamando o flexbox - tudo fica alinhado lateralmente */
+    flex-direction: column; /* falando ao flexbox -tudo fica um embaixo do outro */
+    gap: 40px; /* falando ao flexbox crie um espaço de 40px entre os elementos */
+}
+
+.apresentacao__conteudo__titulo{
+    font-family: var(--font-principal);
+    font-size: 2.25rem;
+   
+}
+
+.Destaque-titulo {
+    color: var(--cor-tericiaria);
+}
+
+.apresentacao__conteudo__texto{
+    font-family: var(--font-secundaria);
+    font-size: 1.5rem;
+}
+
+.apresentacao__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+
+.apresentacao__links_subtitulo{
+    font-size: 1.5rem;
+    font-family: var(--font-principal);
+    font-weight: 400;
+}
+
+
+.apresentacao__links__botoes {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    width: 50%;   /* 50 porcento de que? em relação ao tamanho do elemento pai */
+    border: 2px solid var(--cor-tericiaria) ;
+    border-radius: 8px;
+    padding: 21.5px 0; /* 21 para cima e 0 para os lados, esse é como se fosse uma margem interna */
+    
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-family: var(--font-secundaria);
+    
+}
+
+.apresentacao__links__botoes:hover{
+    background-color: var(--cor-hover);
+} 
+
+
+.apresentacao__imagem {
+    width: 50%;
+}
+
+
+.rodape {
+    padding: 24px 0;
+    background-color: var(--cor-tericiaria);
+
+    color: #272727;
+    font-family: var(--font-secundaria);
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+
+    
+}
+
+
+@media (max-width: 1200px) {  /* isso é basicamente um if, se a largura do dispositivo for até 1200: */
+
+    .cabecalho{
+        padding: 10%;
+    }
+
+    .cabecalho__menu{
+        justify-content: center;
+    }
+
+    .apresentacao{
+        flex-direction: column-reverse; /* falei para os elementos ficarem verticais e ao invés de texto-imagem, o reverse faz imagem-texto */
+    }
+
+    .apresentacao__conteudo{
+        width: auto;  /* no padrão era 50%, porem no celular só 50% da tela pulava muitas linhas */
+    }               /* colocando como auto, a largura fica automatica conforme o espaço disponivel */
+
+}
